@@ -1,0 +1,112 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+body{
+    background:#1D3461;
+    height: 100vh;
+}
+
+.container{
+    width: 400px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+/* Seccion de perfil*/
+
+.profile h1{
+    color: #DCD6F7;
+    margin: 20px 0 20px 0;
+}
+
+.profile span{
+    color: #DCD6F7;
+    letter-spacing: 1px;
+}
+
+#date{
+    color: #DCD6F7;
+    padding: 50px 0 5px 0;
+}
+
+/* Seccion de agregar tarea*/
+
+.add-task{
+    margin-top: 20px;
+    background: #DCD6F7;
+    border-radius: 10px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+.add-task input{
+    width: 100%;
+    font-size: 20px;
+    padding: 20px;
+    height: 100%;
+    border-radius: 5px;
+    border: none;
+    background: #DCD6F7
+}
+
+.add-task input::placeholder{
+    color: #3E92CC;
+}
+
+.add-task i{
+    font-size: 50px;
+    color: #2541B2;
+}
+
+.add-task i:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* Seccion mostrar tarea*/
+
+.section-task h3{
+    color: #DCD6F7;
+    margin: 20px 0 20px 0;
+
+}
+
+.section-task li{
+    display: flex;
+    background: #1282a2;
+    padding: 10px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-between;
+    color: #DCD6F7;
+}
+
+.section-task i{
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+.section-task > ul p{
+    
+    font-size: 1.2rem;
+
+}
+
+.section-task i:hover{
+    transform: scale(1.1);
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.line-through{
+    text-decoration: line-through;
+    color: #c6ac8f;
+}
