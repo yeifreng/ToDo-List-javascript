@@ -8,7 +8,11 @@ const uncheck = 'fa-circle';
 const lineThrough = 'line-through';
 let id = 0
 
+const array = [];
+
 btnAdd.addEventListener('click', addTaskClick);
+document.addEventListener('keyup', addTaskEnter)
+
 
 function datoInput(){
     let dato = inputValue.value
@@ -34,24 +38,36 @@ function ask(taskValue, id, done, remove){
           list.insertAdjacentHTML("beforeend",element)
 }
 
-//Fucion para agregar la tarea
+//Fucion para agregar la tarea con un click
 function addTaskClick(){
     const taskInput = inputValue.value
     if(taskInput){
         ask(taskInput,id,false,false)
+        array.push({
+            nombre: taskInput,
+            id: id,
+            done: false,
+            remove:false
+        })
     }
     
     inputValue.value = ''
     id++
 }
 
-document.addEventListener('keyup', addTaskEnter)
 
+//Fucion para agregar la tarea con un enter
 function addTaskEnter(event){
     if (event.key == 'Enter') {
         const taskInput = inputValue.value
     if(taskInput){
         ask(taskInput,id,false,false)
+        array.push({
+            nombre: tarea,
+            id: id,
+            done: false,
+            remove:false
+        })
     }
     inputValue.value = ''
     id++
@@ -66,6 +82,13 @@ function doneTask(element){
     element.classList.toggle(check)
     element.classList.toggle(uncheck)
     element.parentNode.querySelector('.text').classList.toggle(lineThrough)
+    list[element.id].done = list[element.id].done ?false :true
+}
+
+function removeTask(element){
+
+        element.parentNode.parentNode.removeChild(element.parentNode)  
+
 }
 
 
@@ -75,6 +98,6 @@ function checkData(event){
     if (elementData == 'doneTask') {
         doneTask(element)
     }else if (elementData == 'removeTask'){
-        removeTask()
+        removeTask(element)
     }
 }
