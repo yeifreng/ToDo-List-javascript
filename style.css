@@ -57,9 +57,7 @@ body{
     background: #DCD6F7
 }
 
-.add-task input::placeholder{
-    color: #3E92CC;
-}
+
 
 .add-task i{
     font-size: 50px;
@@ -80,6 +78,7 @@ body{
 }
 
 .section-task li{
+    margin: 7px 0px;
     display: flex;
     background: #1282a2;
     padding: 10px;
