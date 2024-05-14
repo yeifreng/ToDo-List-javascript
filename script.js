@@ -10,14 +10,16 @@ let id = 0
 
 const array = [];
 
+
+
 btnAdd.addEventListener('click', addTaskClick);
 document.addEventListener('keyup', addTaskEnter)
 
+//Para mostrar la fecha
 
-function datoInput(){
-    let dato = inputValue.value
-    console.log(dato)
-}
+const dateNow = new Date()
+date.innerHTML = dateNow.toLocaleDateString('es-CO',{weekday:'long',month:'short',day:'numeric'})
+
 
 //Funcion para crear la tarea
 
@@ -82,12 +84,13 @@ function doneTask(element){
     element.classList.toggle(check)
     element.classList.toggle(uncheck)
     element.parentNode.querySelector('.text').classList.toggle(lineThrough)
-    list[element.id].done = list[element.id].done ?false :true
+    array[element.id].done = array[element.id].done ?false :true
 }
 
 function removeTask(element){
 
-        element.parentNode.parentNode.removeChild(element.parentNode)  
+        element.parentNode.parentNode.removeChild(element.parentNode)
+        array[element.id].remove = true 
 
 }
 
