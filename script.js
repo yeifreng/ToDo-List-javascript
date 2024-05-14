@@ -6,11 +6,8 @@ const btnAdd = document.getElementById('send')
 const check = 'fa-check-circle';
 const uncheck = 'fa-circle';
 const lineThrough = 'line-through';
-let id = 0
-
-const array = [];
-
-
+let id
+let array
 
 btnAdd.addEventListener('click', addTaskClick);
 document.addEventListener('keyup', addTaskEnter)
@@ -46,13 +43,13 @@ function addTaskClick(){
     if(taskInput){
         ask(taskInput,id,false,false)
         array.push({
-            nombre: taskInput,
+            name: taskInput,
             id: id,
             done: false,
             remove:false
         })
     }
-    
+    localStorage.setItem('TODO',JSON.stringify(array))
     inputValue.value = ''
     id++
 }
@@ -65,12 +62,13 @@ function addTaskEnter(event){
     if(taskInput){
         ask(taskInput,id,false,false)
         array.push({
-            nombre: tarea,
+            name: taskInput,
             id: id,
             done: false,
             remove:false
         })
     }
+    localStorage.setItem('TODO',JSON.stringify(array))
     inputValue.value = ''
     id++
     }
@@ -100,7 +98,31 @@ function checkData(event){
     const elementData = element.attributes.data.value
     if (elementData == 'doneTask') {
         doneTask(element)
-    }else if (elementData == 'removeTask'){
+    }
+    else if (elementData == 'removeTask'){
         removeTask(element)
     }
+    localStorage.setItem('TODO',JSON.stringify(array))
+}
+
+
+//localstorage get item
+
+let dataList = localStorage.getItem('TODO')
+
+if(dataList){
+    array = JSON.parse(dataList)
+    id = array.length
+    listLoading(array)
+}else{
+    array = [];
+    id = 0
+}
+
+function listLoading(arrayList){
+
+    for(let arr of arrayList){
+        ask(arr.name, arr.id, arr.done, arr.remove)
+    }
+
 }
